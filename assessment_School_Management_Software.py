@@ -90,36 +90,36 @@ def homeroom_teacher():
 
 while True:
 
-    print("\nYour options: create, manage, end!")
+    print("\nYour options:\n1. create\n2. manage\n3. end!")
     action = input("What would you like to do?: ").lower()
 
-    if action == "end":
+    if action == "3":
         print("\nBye!")
         break
 
-    elif action == "create":
+    elif action == "1":
         while True:
              
-            print("\nYour options: student, teacher, homeroom teacher or end!")  # .strip()
-            create_action = input("\nWhat would you like to do?: ").lower()
+            print("\nYour options:\n1. student\n2. teacher\n3. homeroom teacher\n4. end!")  # .strip()
+            create_action = input("\nWhat would you like to do?: ")
 
-            if create_action == "end":
+            if create_action == "4":
                 print("\nBye bye...")
                 break
 
-            elif create_action == "student":
+            elif create_action == "1":
                 students = student()
 
                 for k, v in students.items(): # This can be removed it is only for me to see the result
                     print(f"- {k.capitalize()}: {v}") # This can be removed it is only for me to see the result
 
-            elif create_action == "teacher":
+            elif create_action == "2":
                 teachers = teacher()
 
                 for k1, v1 in teachers.items(): # This can be removed it is only for me to see the result
                     print(f"- {k1.capitalize()}: {v1}") # This can be removed it is only for me to see the result
 
-            elif create_action == "homeroom teacher":
+            elif create_action == "3":
                 homeroom_teachers = homeroom_teacher()
 
                 for k2, v2 in homeroom_teachers.items(): # This can be removed it is only for me to see the result
@@ -129,16 +129,15 @@ while True:
                 print("Wrong input, please retry")
                 continue
     
-    elif action == "manage":
+    elif action == "2":
         print()
          
 
 
 
 
-
-
-
-
     else:
         print("\nInvalid command!\n")
+
+
+

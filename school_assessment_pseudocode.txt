@@ -1,0 +1,33 @@
+data structure that stores 3 types of users - {student, teacher, homeroom teacher}
+
+######### recommended to use nested lists #######
+
+### create 2 functions: ######
+
+def user_creation() ---> manages that the user inputs:
+
+    1. Prompt for a user type to create: student, teacher, homeroom teacher, end. After creating a user (except for 'end'), the menu should be displayed again.
+  - 'student': Prompt for the student's first and last name (as one or two variables, depending on your design) and the class name (e.g., "3C").
+  - 'teacher': Prompt for the teacher's first and last name (as one or two variables, depending on your design), the subject they teach, and the names of the classes they teach, until an empty line is entered.
+  - 'homeroom teacher': Prompt for the homeroom teacher's first and last name (as one or two variables, depending on your design), and the name of the class they lead.
+  - 'end': Return to the main menu.
+
+def user_management(): --> manages that the user inputs:
+
+    1. Prompt for an option to manage: class, student, teacher, homeroom teacher, end. After managing an option (except for 'end'), the menu should be displayed again.
+  - 'class': Prompt for a class to display (e.g., "3C"), the program should list all students in the class and the homeroom teacher.
+  - 'student': Prompt for a student's first and last name, the program should list all the classes the student attends and the teachers of these classes.
+  - 'teacher': Prompt for a teacher's first and last name, the program should list all the classes the teacher teaches.
+  - 'homeroom teacher': Prompt for a homeroom teacher's first and last name, the program should list all students the homeroom teacher leads.
+  - 'end': Return to the main menu.
+
+
+while true loop:
+    if create:
+        program should start user creation
+    elif manage:
+        program needs to start the management process
+    elif end:
+        terminate program
+
+
