@@ -1,12 +1,13 @@
 # Define the functions 
-
 def student():
-    student_list = []
-
+    student_list = [] # "global" function empty list
+    
+    # Getting user inputs
     name = input("Please enter you name: ").capitalize()
     surname = input("Please enter you last name: ").capitalize()
     class_name = input("Please enter your class: ").upper()
 
+    # If all info are provided from user then append details to list student_list[]
     if name and surname and class_name:
         student_list.append({
             "name" : name,
@@ -14,18 +15,21 @@ def student():
             "class" : class_name
             })
     else:
-        print("\nYou did not provide all the info, please retry!")
+        print("\nAll the info are required, please retry!")
     
     return student_list
 
 def teacher():
-    teacher_list = []
+    teacher_list = [] # "global" function empty list
+
     while True:
         try:
+            # Getting user inputs
             name = input("Please enter you name: ").capitalize()
             surname = input("Please enter you last name: ").capitalize()
             subject = input("Please enter subject of the lesson: ").capitalize()
 
+            # Raise an exception if user does not provide all the info above
             if not name or not surname or not subject:
                 raise ValueError()
             
@@ -33,15 +37,17 @@ def teacher():
             print("\nAll the info are required, please retry!")
             break
         
-
+        # An empty list to add classes taught by the teacher
         classes_taught = []
+
         while True:
             print("\nPlease note: to save your details at least 1 class need to be added!\n")
             name_classes = input("Please enter the classes you teach (press enter in empty line to stop): ")
-
+            # If enter is pressed on a empty line then stop the loop
             if name_classes == "":
                 break
             else:
+                # Appened classes to list classes_taught[] until user press enter on empty line and then append all to list teacher_list = []
                 classes_taught.append(name_classes)
 
                 teacher_list.append({
@@ -57,12 +63,15 @@ def teacher():
     return teacher_list
 
 def homeroom_teacher():
+    # "global" function empty list
     homeroom_teacher_list = []
 
+    # Getting user inputs
     name = input("Please enter you name: ").capitalize()
     surname = input("Please enter you last name: ").capitalize()
     class_name = input("Please enter the class you teach: ").upper()
 
+    # If all info are provided from user then append details to list homeroom_teacher_list[]
     if name and surname and class_name:
         homeroom_teacher_list.append({
         "name" : name,
@@ -70,17 +79,18 @@ def homeroom_teacher():
         "class" : class_name
         })
     else:
-        print("\nyou did not put any info!")
+        print("\nAll the info are required, please retry!")
 
     return homeroom_teacher_list
 
-
+# Global empty lists to store information about students, teachers, and homeroom teachers
 students = []
 teachers = []
 homeroom_teachers = []
 
 while True:
-
+    
+    # Getting user inputs and giving choices
     print("\nYour options:\n1. create\n2. manage\n3. end")
     action = input("\nPlease type a number: ").lower()
 
@@ -97,7 +107,7 @@ while True:
             if create_action == "4":
                 print("\nBye bye...")
                 break
-
+            # Choices for student, teacher and homeroom teacher are given and when selected, the functions predefined will kick in and result stored in the global lists 
             elif create_action == "1":
                 students.extend(student())
 
@@ -117,6 +127,7 @@ while True:
             print("\nYour options:\n1. class\n2. student\n3. teacher\n4. homeroom teacher\n5. end")
             create_action_1 = input("\nPlease type a number: ")
 
+            # Retrieve information about students and homeroom teacher in a specified class
             if create_action_1 == "1":
                 class_name = input("Please enter the class: ").upper()
 
@@ -129,11 +140,12 @@ while True:
                 else:
                     print("\nStudent(s) in class:")
                     for student_class in students_in_class:
-                        print(f"{student_class['name']} {student_class['surname']}")
+                        print(f"- {student_class['name']} {student_class['surname']}")
 
                     print("\nHomeroom teacher:")
                     print(f"- {homeroom_teacher_in_class[0]['name']} {homeroom_teacher_in_class[0]['surname']}")
 
+            # Retrieve information about the class attended by a specified student and the teacher for that class
             elif create_action_1 == "2":
                     student_name = input("Please enter your name: ").capitalize()
                     student_surname = input("Please enter your surname: ").capitalize()
@@ -142,6 +154,7 @@ while True:
 
                     if not students_in_list_name:
                         print("\nNo student found with the specified name and surname.")
+                        
                     else:
                         print("\nClass attended by the student:")
                         for student_class_1 in students_in_list_name:
@@ -155,6 +168,7 @@ while True:
                             for teacher_in_class in teachers_in_class:
                                 print(f"- {teacher_in_class['name']} {teacher_in_class['surname']}")
          
+             # Retrieve information about the class(es) taught by a specified teacher
             elif create_action_1 == "3":
                 teacher_name = input("Please enter your name: ").capitalize()
                 teacher_surname = input("Please enter your surname: ").capitalize()
@@ -173,6 +187,7 @@ while True:
                             for tx in class_list:
                                 print(f"- {tx}")
 
+            # Retrieve information about the students in the homeroom class of a specified homeroom teacher
             elif create_action_1 == "4":
                 homet_name = input("Please enter your name: ").capitalize()
                 homet_surname = input("Please enter your surname: ").capitalize()
@@ -203,4 +218,4 @@ while True:
                 print("\nWrong input, retry!")
 
     else:
-        print("\nInvalid command!\n")
+        print("\nInvalid input!\n")
