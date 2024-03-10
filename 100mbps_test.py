@@ -18,32 +18,6 @@ def student():
     
     return student_list
 
-
-
-# def student():
-#     student_list = []
-
-#     name = input("Please enter you name: ").capitalize()
-#     surname = input("Please enter you last name: ").capitalize()
-    
-
-#     class_student = []
-#     while True:
-#         class_name = input("Please enter your class (press enter in empty line to stop): ")
-
-#         if class_name == "":
-#             break
-#         else:
-#             class_student.append(class_name)
-
-#     student_list.append({
-#     "name" : name,
-#     "surname" : surname,
-#     "class" : class_student
-#     })
-    
-#     return student_list
-
 def teacher():
     teacher_list = []
 
@@ -80,9 +54,9 @@ def homeroom_teacher():
 
     if name and surname and class_name:
         homeroom_teacher_list.append({
-            "name" : name,
-            "surname" : surname,
-            "class" : class_name
+        "name" : name,
+        "surname" : surname,
+        "class" : class_name
         })
     else:
         print("you did not put any info!")
@@ -123,7 +97,7 @@ while True:
 
             elif create_action == "3":
                 homeroom_teachers.extend(homeroom_teacher())
-                # print(homeroom_teachers)
+                print(homeroom_teachers) # Not needed only for testing
 
             else:
                 print("Wrong input, please retry")
@@ -194,11 +168,13 @@ while True:
 
                     for t in teacher_classes:
                         class_list = t["class"]
-                        if isinstance(class_list, list):# and class_list:
+                        if isinstance(class_list, list):
                             for tx in class_list:
                                 print(f"- {tx}")
-                        # else:
-                        #     print(f"- {class_list}")
+
+            elif create_action_1 == "4":
+                homet_name = input("Please enter your name: ").capitalize()
+                homet_surname = input("Please enter your surname: ").capitalize()
 
 
 
@@ -222,32 +198,3 @@ while True:
 
 
 
-
-
-                # if student_name == students["name"] and student_surname == students["surname"]:
-                #     for class_student in students:
-                #         print(f"- {class_student['class']}")
-
-                #     for class_teacher in teachers:
-                #         print(f"- {class_teacher['name']} {class_teacher['surname']}")
-        
-
-
-                #     if create_action_1 == "2":
-                # student_name = input("Please enter you name: ").capitalize
-                # student_surname = input("Please enter your surname: ").capitalize
-
-                # students_in_list_name = [name for name in students if name["name"] == student_name and name["surname"] == student_surname]
-                # # students_in_list_surname = [surname for surname in students if surname["name"] == student_surname]
-                # teacher_in_class = [teacher_class for teacher_class in homeroom_teachers if teacher_class["name"] == student_name and teacher_class["surname"] == student_surname]
-
-                # if not students_in_list_name or not teacher_in_class:
-                #     print("No students or homeroom teacher found for the specified class.")
-
-                # else:
-                #     print("\nTeacher(s) in class:")
-                #     for teacher_class in teachers:
-                #         print(f"{teachers['name']} {teachers['surname']}")
-                #     print("\nStudent Class:")
-                #     print(f"- {students_in_list_name[0]['name']} {students_in_list_name[0]['surname']}")
-                    
